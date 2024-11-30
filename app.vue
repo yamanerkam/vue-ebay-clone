@@ -16,7 +16,8 @@
 
     <!-- Erkam -->
     <div class="main-section" v-if="state === 0">
-      0
+      <NavbarTop/>
+      <Navbar/>
     </div>
     <div class="main-section" v-if="state === 1">
       1
@@ -84,7 +85,7 @@ body {
 }
 
 .main-section {
-  width: 80%;
+  width: 90%;
   height: 100%;
 }
 
@@ -92,16 +93,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 20%;
+  width: 10%;
   height: 100%;
-  padding: 1rem;
   border-right: 1px solid #ccc;
   background-color: beige;
 }
 
 .sidebar-button {
   margin-bottom: 10px;
-  padding: 10px;
   background-color: #0d080f;
   color: white;
   border: none;
@@ -118,9 +117,5 @@ body {
   font-weight: bold;
 }
 
-.nav-bar {
-  width: 100%;
-  height: 10vh;
-  background-color: rgb(178, 0, 0);
-}
+
 </style>
