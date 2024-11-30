@@ -26,7 +26,7 @@
       <Carousel/>
     </div>
     <div class="main-section" v-if="state === 3">
-      3
+      <ProductsGallery/>
     </div>
     <div class="main-section" v-if="state === 4">
       4
