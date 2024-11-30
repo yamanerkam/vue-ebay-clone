@@ -20,7 +20,7 @@
       <Navbar/>
     </div>
     <div class="main-section" v-if="state === 1">
-      1
+      <SignIn/>
     </div>
     <div class="main-section" v-if="state === 2">
       2
@@ -92,6 +92,7 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
   width: 10%;
   height: 100%;
@@ -100,12 +101,13 @@ body {
 }
 
 .sidebar-button {
-  margin-bottom: 10px;
   background-color: #0d080f;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 80px;
+  height: 70px;
 }
 
 .sidebar-button:hover {
