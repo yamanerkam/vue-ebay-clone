@@ -23,7 +23,7 @@
       <SignIn/>
     </div>
     <div class="main-section" v-if="state === 2">
-      2
+      <Carousel/>
     </div>
     <div class="main-section" v-if="state === 3">
       3
