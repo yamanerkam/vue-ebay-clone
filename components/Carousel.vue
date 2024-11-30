@@ -89,7 +89,7 @@
   const currentSlide = ref(0)
   const isPlaying = ref(true)
   const autoplayInterval = ref(null)
-  const AUTOPLAY_DELAY = 5000
+  const AUTOPLAY_DELAY = 2000
   
   const nextSlide = () => {
     currentSlide.value = (currentSlide.value + 1) % 2

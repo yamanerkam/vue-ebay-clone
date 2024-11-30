@@ -11,7 +11,7 @@
       <button class="sidebar-button" @click="updateState(7)"> Zal 3 </button>
       <button class="sidebar-button" @click="updateState(8)"> Zal 4 </button>
       <button class="sidebar-button" @click="updateState(9)"> Zal 5 </button>
-      <span>current index: {{ state }}</span>
+      <span> index: {{ state }}</span>
     </div>
 
     <!-- Erkam -->
@@ -29,7 +29,7 @@
       <ProductsGallery/>
     </div>
     <div class="main-section" v-if="state === 4">
-      4
+      <ProductPage/>
     </div>
 
     <!-- Zal -->
