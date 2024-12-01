@@ -16,78 +16,73 @@
 
     <!-- Erkam -->
     <div class="main-section" v-if="state === 0">
-      <NavbarTop/>
-      <Navbar/>
+      <NavbarTop />
+      <Navbar />
     </div>
     <div class="main-section" v-if="state === 1">
-      <SignIn/>
+      <SignIn />
     </div>
     <div class="main-section" v-if="state === 2">
-      <Carousel/>
+      <Carousel />
     </div>
     <div class="main-section" v-if="state === 3">
-      <ProductsGallery/>
+      <ProductsGallery />
     </div>
     <div class="main-section" v-if="state === 4">
-      <ProductPage/>
+      <ProductPage />
     </div>
 
     <!-- Zal -->
     <div class="main-section" v-if="state === 5">
-      <ProductList/>
+      <ProductList />
     </div>
     <div class="main-section" v-if="state === 6">
-      <ProductModal 
-        :show="true"
-        :product="{
-          id: 1,
-          title: 'Iron 650mg - Immune System Boost, Relieve Anemia, Anti-fatigue - Vitamin C',
-          image: 'https://i.ebayimg.com/images/g/hX0AAOSwHTlfmWhd/s-l500.webp',
-          price: 14.53,
-          shipping: 'Free',
-          condition: 'New',
-          estimatedDelivery: 'Thu, Dec 19 - Fri, Jan 10',
-          seller: {
-            name: 'xemenry nutrition',
-            rating: '100%',
-            reviews: 42,
-            avatar: 'https://i.ebayimg.com/images/g/3~wAAOSwPzVf3rV~/s-l30.jpg'
-          }
-        }"
-      />
+      <ProductModal :show="true" :product="{
+        id: 1,
+        title: 'Iron 650mg - Immune System Boost, Relieve Anemia, Anti-fatigue - Vitamin C',
+        image: 'https://i.ebayimg.com/images/g/hX0AAOSwHTlfmWhd/s-l500.webp',
+        price: 14.53,
+        shipping: 'Free',
+        condition: 'New',
+        estimatedDelivery: 'Thu, Dec 19 - Fri, Jan 10',
+        seller: {
+          name: 'xemenry nutrition',
+          rating: '100%',
+          reviews: 42,
+          avatar: 'https://i.ebayimg.com/images/g/3~wAAOSwPzVf3rV~/s-l30.jpg'
+        }
+      }" />
     </div>
     <div class="main-section" v-if="state === 7">
-      <ShoppingCartItem
-      :seller="{
-    name: 'BRAND OFF TOKYO Hong Kong',
-    logo: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp',
-    feedback: '98.9%'
-  }"
-  :product="{
-    title: 'ROLEX Datejust 36mm Automatic Watch 116233 18K Yellow Gold/Stainless Steel Gold',
-    image: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp',
-    condition: 'Pre-owned',
-    currentPrice: 8211.00,
-    originalPrice: 9660.00,
-    lastOne: true
-  }"
-  :shipping="{
-    method: 'Expedited Shipping',
-    location: 'from Greater China to worldwide',
-    free: true,
-    freeReturns: true
-  }"
-  :offer="{
-    savings: '15%'
-  }"
-  v-model="quantity"
-  @save="handleSave"
-  @remove="handleRemove"
-  @requestShipping="handleShippingRequest"
-      />
+      <ShoppingCartItem :seller="{
+        name: 'BRAND OFF TOKYO Hong Kong',
+        logo: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp',
+        feedback: '98.9%'
+      }" :product="{
+        title: 'ROLEX Datejust 36mm Automatic Watch 116233 18K Yellow Gold/Stainless Steel Gold',
+        image: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp',
+        condition: 'Pre-owned',
+        currentPrice: 8211.00,
+        originalPrice: 9660.00,
+        lastOne: true
+      }" :shipping="{
+        method: 'Expedited Shipping',
+        location: 'from Greater China to worldwide',
+        free: true,
+        freeReturns: true
+      }" :offer="{
+        savings: '15%'
+      }" v-model="quantity" @save="handleSave" @remove="handleRemove" @requestShipping="handleShippingRequest" />
     </div>
     <div class="main-section" v-if="state === 8">
-      8
+      <CartItem :product="{
+        name: 'ROLEX Datejust 36mm Automatic Watch',
+        image: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp',
+        price: '$8,211.00',
+        shipping: 'Free Shipping',
+        quantity: 1
+      }" title="Your Shopping Cart" total="$8,211.00" checkoutButtonText="Proceed to Checkout"
+        viewCartButtonText="View Full Cart" />
     </div>
     <div class="main-section" v-if="state === 9">
       9
@@ -98,11 +93,13 @@
 <script>
 import ProductModal from './components/ProductModal.vue'
 import ProductList from './components/ProductList.vue'
+import CartItem from './components/CartItem.vue'
 
 export default {
   components: {
     ProductModal,
-    ProductList
+    ProductList,
+    CartItem
   },
   data() {
     return {
@@ -137,13 +134,21 @@ body {
 }
 
 /* Modern font stilleri için ek sınıflar */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--ebay-font);
   font-weight: 600;
   letter-spacing: -0.2px;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: var(--ebay-font);
 }
 
@@ -200,6 +205,4 @@ button, input, select, textarea {
   margin-top: 20px;
   font-weight: bold;
 }
-
-
 </style>
