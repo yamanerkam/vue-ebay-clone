@@ -1,25 +1,41 @@
 <template>
-    <div class="recommended-sellers">
-        <h2 class="section-title">Recommended Sellers</h2>
-        <div class="sellers-grid">
-            <div v-for="seller in sellers" :key="seller.id" class="seller-card">
-                <div class="product-grid">
-                    <img v-for="(product, index) in seller.products" :key="index" :src="product.image"
-                        :alt="product.name" class="product-image" />
-                </div>
-                <div class="seller-info">
-                    <div class="seller-details">
-                        <img :src="seller.avatar" :alt="seller.name" class="seller-avatar" />
-                        <div class="seller-text">
-                            <span class="seller-name">{{ seller.name }}</span>
-                            <span class="follower-count">{{ seller.followers }} followers</span>
-                        </div>
+    <div>
+        <!-- Trending Section -->
+        <div class="trending-section">
+            <h2 class="trending-title">Trending on eBay</h2>
+            <div class="trending-grid">
+                <div v-for="category in categories" :key="category.id" class="category-item">
+                    <div class="category-circle">
+                        <img :src="category.image" :alt="category.name" class="category-image">
                     </div>
-                    <button class="save-button" :class="{ 'saved': seller.isSaved }" @click="toggleSave(seller)">
-                        <heart-icon :fill="seller.isSaved ? '#0053a0' : 'none'"
-                            :stroke="seller.isSaved ? '#0053a0' : '#0053a0'" size="16" />
-                        {{ seller.isSaved ? 'Saved' : 'Save' }}
-                    </button>
+                    <span class="category-name">{{ category.name }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Sellers Section -->
+        <div class="recommended-sellers">
+            <h2 class="section-title">Recommended Sellers</h2>
+            <div class="sellers-grid">
+                <div v-for="seller in sellers" :key="seller.id" class="seller-card">
+                    <div class="product-grid">
+                        <img v-for="(product, index) in seller.products" :key="index" :src="product.image"
+                            :alt="product.name" class="product-image" />
+                    </div>
+                    <div class="seller-info">
+                        <div class="seller-details">
+                            <img :src="seller.avatar" :alt="seller.name" class="seller-avatar" />
+                            <div class="seller-text">
+                                <span class="seller-name">{{ seller.name }}</span>
+                                <span class="follower-count">{{ seller.followers }} followers</span>
+                            </div>
+                        </div>
+                        <button class="save-button" :class="{ 'saved': seller.isSaved }" @click="toggleSave(seller)">
+                            <heart-icon :fill="seller.isSaved ? '#0053a0' : 'none'"
+                                :stroke="seller.isSaved ? '#0053a0' : '#0053a0'" size="16" />
+                            {{ seller.isSaved ? 'Saved' : 'Save' }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,6 +45,44 @@
 <script setup>
 import { ref } from 'vue'
 import { HeartIcon } from 'lucide-vue-next'
+
+const categories = [
+    {
+        id: 1,
+        name: 'Luxury',
+        image: 'https://i.ebayimg.com/images/g/hX0AAOSwHTlfmWhd/s-l500.webp'
+    },
+    {
+        id: 2,
+        name: 'Sneakers',
+        image: 'https://i.ebayimg.com/images/g/zRUAAOSwNjVmlOUO/s-l500.webp'
+    },
+    {
+        id: 3,
+        name: 'P&A',
+        image: 'https://i.ebayimg.com/images/g/~ogAAOSwaYpnD4E9/s-l500.webp'
+    },
+    {
+        id: 4,
+        name: 'Refurbished',
+        image: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp'
+    },
+    {
+        id: 5,
+        name: 'Trading cards',
+        image: 'https://i.ebayimg.com/images/g/hX0AAOSwHTlfmWhd/s-l500.webp'
+    },
+    {
+        id: 6,
+        name: 'Pre-loved Luxury',
+        image: 'https://i.ebayimg.com/images/g/zRUAAOSwNjVmlOUO/s-l500.webp'
+    },
+    {
+        id: 7,
+        name: 'Toys',
+        image: 'https://i.ebayimg.com/images/g/~ogAAOSwaYpnD4E9/s-l500.webp'
+    }
+]
 
 const sellers = ref([
     {
@@ -114,6 +168,67 @@ const toggleSave = (seller) => {
 </script>
 
 <style scoped>
+/* Trending Section Styles */
+.trending-section {
+    padding: 24px;
+    background: #fff;
+    margin-bottom: 24px;
+}
+
+.trending-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #111;
+}
+
+.trending-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.trending-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+.category-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #f7f7f7;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-image {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+.category-name {
+    font-size: 14px;
+    color: #111;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Recommended Sellers Section Styles */
 .recommended-sellers {
     padding: 24px;
     background: #fff;
@@ -213,6 +328,15 @@ const toggleSave = (seller) => {
 }
 
 @media (max-width: 768px) {
+    .category-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .category-item {
+        min-width: 100px;
+    }
+
     .sellers-grid {
         grid-template-columns: 1fr;
     }
