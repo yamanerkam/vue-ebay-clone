@@ -57,21 +57,33 @@
       />
     </div>
     <div class="main-section" v-if="state === 7">
-      <ProductModal 
-        :show="true"
-        :product="{
-          id: 1,
-          title: 'Iron 650mg - Immune System Boost, Relieve Anemia, Anti-fatigue - Vitamin C',
-          image: 'https://i.ebayimg.com/images/g/hX0AAOSwHTlfmWhd/s-l500.webp',
-          price: 14.53,
-          condition: 'New',
-          seller: {
-            name: 'xemenry nutrition',
-            rating: '100%',
-            reviews: 42,
-            avatar: 'https://i.ebayimg.com/images/g/3~wAAOSwPzVf3rV~/s-l30.jpg'
-          }
-        }"
+      <ShoppingCartItem
+      :seller="{
+    name: 'BRAND OFF TOKYO Hong Kong',
+    logo: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp',
+    feedback: '98.9%'
+  }"
+  :product="{
+    title: 'ROLEX Datejust 36mm Automatic Watch 116233 18K Yellow Gold/Stainless Steel Gold',
+    image: 'https://i.ebayimg.com/images/g/NTcAAOSwsH1m8pwy/s-l225.webp',
+    condition: 'Pre-owned',
+    currentPrice: 8211.00,
+    originalPrice: 9660.00,
+    lastOne: true
+  }"
+  :shipping="{
+    method: 'Expedited Shipping',
+    location: 'from Greater China to worldwide',
+    free: true,
+    freeReturns: true
+  }"
+  :offer="{
+    savings: '15%'
+  }"
+  v-model="quantity"
+  @save="handleSave"
+  @remove="handleRemove"
+  @requestShipping="handleShippingRequest"
       />
     </div>
     <div class="main-section" v-if="state === 8">
