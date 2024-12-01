@@ -34,13 +34,45 @@
 
     <!-- Zal -->
     <div class="main-section" v-if="state === 5">
-      5
+      <ProductList/>
     </div>
     <div class="main-section" v-if="state === 6">
-      6
+      <ProductModal 
+        :show="true"
+        :product="{
+          id: 1,
+          title: 'Iron 650mg - Immune System Boost, Relieve Anemia, Anti-fatigue - Vitamin C',
+          image: 'https://i.ebayimg.com/images/g/hX0AAOSwHTlfmWhd/s-l500.webp',
+          price: 14.53,
+          shipping: 'Free',
+          condition: 'New',
+          estimatedDelivery: 'Thu, Dec 19 - Fri, Jan 10',
+          seller: {
+            name: 'xemenry nutrition',
+            rating: '100%',
+            reviews: 42,
+            avatar: 'https://i.ebayimg.com/images/g/3~wAAOSwPzVf3rV~/s-l30.jpg'
+          }
+        }"
+      />
     </div>
     <div class="main-section" v-if="state === 7">
-      7
+      <ProductModal 
+        :show="true"
+        :product="{
+          id: 1,
+          title: 'Iron 650mg - Immune System Boost, Relieve Anemia, Anti-fatigue - Vitamin C',
+          image: 'https://i.ebayimg.com/images/g/hX0AAOSwHTlfmWhd/s-l500.webp',
+          price: 14.53,
+          condition: 'New',
+          seller: {
+            name: 'xemenry nutrition',
+            rating: '100%',
+            reviews: 42,
+            avatar: 'https://i.ebayimg.com/images/g/3~wAAOSwPzVf3rV~/s-l30.jpg'
+          }
+        }"
+      />
     </div>
     <div class="main-section" v-if="state === 8">
       8
@@ -52,28 +84,66 @@
 </template>
 
 <script>
+import ProductModal from './components/ProductModal.vue'
+import ProductList from './components/ProductList.vue'
+
 export default {
+  components: {
+    ProductModal,
+    ProductList
+  },
   data() {
     return {
       state: 0,
-    };
+    }
   },
   methods: {
     updateState(index) {
-      this.state = index;
+      this.state = index
     },
   },
-};
+}
 </script>
 
 <style>
+/* Mevcut stiller... */
+
+/* Global font ayarları */
+:root {
+  --ebay-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+}
+
 body {
+  font-family: var(--ebay-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
+
+/* Modern font stilleri için ek sınıflar */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ebay-font);
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+button, input, select, textarea {
+  font-family: var(--ebay-font);
+}
+
+.title {
+  letter-spacing: -0.3px;
+}
+
+.price {
+  letter-spacing: -0.5px;
+}
+
+/* Diğer mevcut stiller... */
 
 .home {
   width: 100%;
