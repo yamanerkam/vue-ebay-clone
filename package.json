@@ -15,7 +15,6 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "typescript": "^5.7.2",
-    "vue-tsc": "^2.1.10"
+    "typescript": "^5.7.2"
   }
 }
