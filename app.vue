@@ -85,7 +85,7 @@
         viewCartButtonText="View Full Cart" />
     </div>
     <div class="main-section" v-if="state === 9">
-      9
+      <RecommendedSellers />
     </div>
   </div>
 </template>
@@ -94,12 +94,14 @@
 import ProductModal from './components/ProductModal.vue'
 import ProductList from './components/ProductList.vue'
 import CartItem from './components/CartItem.vue'
+import RecommendedSellers from './components/RecommendedSellers.vue'
 
 export default {
   components: {
     ProductModal,
     ProductList,
-    CartItem
+    CartItem,
+    RecommendedSellers
   },
   data() {
     return {
